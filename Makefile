@@ -3,16 +3,18 @@ ROUGE_DEST=assets/css/rougify
 DEBUG=JEKYLL_GITHUB_TOKEN=blank PAGES_API_URL=http://0.0.0.0
 
 help:
-	@echo "jekyll-rtd-theme -- GitHub-flavored docs theme for Jekyll\n"
+	@echo "jekyll-rtd-theme -- GitHub flavored documentation theme for all open source projects\n"
 	@echo "Usage:"
 	@echo "    make [subcommand]\n"
 	@echo "Subcommands:"
-	@echo "    install	Install the ruby dependencies"
-	@echo "    format	Format all the files"
-	@echo "    theme	Build and install this theme as gem"
-	@echo "    build	Build the site"
-	@echo "    rougify	Build rouge skins"
-	@echo "    server	Make a livereload jekyll server to debug"
+	@echo "    install  Install the theme dependencies"
+	@echo "    format   Format all files"
+	@echo "    clean    Clean the workspace"
+	@echo "    dist     Build the theme css and script"
+	@echo "    theme    Make theme as gem and install"
+	@echo "    site     Build the test site"
+	@echo "    rougify  Build the rouge skins"
+	@echo "    server   Make a livereload jekyll server to development"
 
 
 install:
@@ -24,7 +26,8 @@ format:
 	@npx prettier . --check --write
 
 clean:
-	@rm -f *.gem && bundle exec jekyll clean
+	@git clean -xf
+	@bundle exec jekyll clean
 
 dist: format clean
 	@npx webpack --mode production
@@ -33,7 +36,7 @@ theme: dist
 	@gem uninstall jekyll-rtd-theme
 	@gem build *.gemspec && gem install *.gem
 
-build: dist
+site: dist
 	@${DEBUG} bundle exec jekyll build --safe --profile
 
 rougify:

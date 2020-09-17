@@ -8,7 +8,7 @@
 [![featured themes](https://img.shields.io/badge/featured%20on-JekyllThemes-red.svg)](https://jekyll-themes.com)
 [![gitter](https://badges.gitter.im/rundocs/jekyll-rtd-theme.svg)][gitter]
 
-GitHub-flavored docs theme for Jekyll, based on sphinx_rtd_theme
+GitHub flavored documentation theme for all open source projects
 
 <img class="shadow-box" width="50%" alt="jekyll-rtd-theme" src="https://user-images.githubusercontent.com/68011645/89026666-ad3a8680-d35b-11ea-9f4b-d3fe26ae12ed.png">
 
